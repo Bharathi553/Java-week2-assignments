@@ -20,6 +20,12 @@ public class ItemController {
     public List<Item> getAllItem(){
         return itemService.getAllItem();
     }
+
+    @GetMapping("/{id}")
+    public Item getItemById(@PathVariable Long id) {
+        return itemService.getItemById(id);
+    }
+
     @PostMapping
     public Item createItem( @RequestBody Item item){
         return itemService.createItem(item);

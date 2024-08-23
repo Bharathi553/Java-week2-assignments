@@ -19,6 +19,10 @@ public class ItemService {
     public List<Item> getAllItem(){
         return itemRepository.findAll();
     }
+    @GetMapping
+    public Item getItemById(Long id) {
+        return itemRepository.findById(id).orElseThrow(() -> new RuntimeException("Item not found"));
+    }
     @PostMapping
     public Item createItem(Item item){
         return itemRepository.save(item);
